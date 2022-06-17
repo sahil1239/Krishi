@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 // import 'package:carpool/network.dart';
 import 'geomap.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
 class Login extends StatefulWidget {
   static String id = 'login';
@@ -128,6 +129,12 @@ class _LoginState extends State<Login> {
                           ),
                           SizedBox(
                             height: 20,
+                          ),
+                          WebViewPlus(
+                            javascriptMode: JavascriptMode.unrestricted,
+                            onWebViewCreated: (controller){
+                              controller.loadUrl("assets/webpage/index.html");
+                            } ,
                           ),
                           Roundedbutton(
                             'Login',
